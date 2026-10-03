@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Skill Proof - Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        .welcome {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .welcome h1 {
+            margin-top: 0;
+            color: #172554;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .score {
+            font-size: 28px;
+            font-weight: bold;
+            color: #172554;
+        }
+
+        .details {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .details h2 {
+            color: #172554;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .status {
+            font-weight: bold;
+            color: green;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        button {
+            background: #172554;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #1e40af;
+        }
+
+        @media (max-width: 700px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>AI Skill Proof</h2>
+    <span>Dashboard</span>
+</header>
+
+<div class="container">
+
+    <div class="welcome">
+        <h1>Welcome, <span id="userName">Student</span>! 👋</h1>
+        <p>Email: <span id="userEmail">Not available</span></p>
+        <p>Skill Assessed: <strong id="skill">Not available</strong></p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Knowledge</h3>
+            <div class="score" id="knowledgeScore">0%</div>
+        </div>
+
+        <div class="card">
+            <h3>Debugging</h3>
+            <div class="score" id="debugScore">0%</div>
+        </div>
+
+        <div class="card">
+            <h3>Coding</h3>
+            <div class="score" id="codingScore">0%</div>
+        </div>
+
+        <div class="card">
+            <h3>Overall</h3>
+            <div class="score" id="overallScore">0%</div>
+        </div>
+
+    </div>
+
+    <div class="details">
+
+        <h2>Assessment Details 📋</h2>
+
+        <div class="row">
+            <span>Skill</span>
+            <strong id="detailSkill">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Knowledge Score</span>
+            <strong id="detailKnowledge">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Debugging Score</span>
+            <strong id="detailDebug">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Coding Score</span>
+            <strong id="detailCoding">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Overall Score</span>
+            <strong id="detailOverall">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Status</span>
+            <strong class="status" id="skillStatus">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Proof ID</span>
+            <strong id="proofId">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Assessment Date</span>
+            <strong id="proofDate">-</strong>
+        </div>
+
+    </div>
+
+    <div class="buttons">
+    <button onclick="goProfile()">👤 My Profile</button>
+    <button onclick="goSkills()">🧠 Skills</button>
+    <button onclick="goProof()">🏆 View Skill Proof</button>
+    <button onclick="goAssessment()">🚀 Take Another Assessment</button>
+    <button onclick="logout()">Logout</button>
+</div>
+
+</div>
+
+<script>
+    function goProfile() {
+    window.location.href = "profile.html";
+}
+
+function goSkills() {
+    window.location.href = "skills.html";
+}
+
+function goProof() {
+    window.location.href = "proof.html";
+}
+
+function goAssessment() {
+    localStorage.removeItem("assessmentFinished");
+    window.location.href = "assessment.html";
+}
+
+function logout() {
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userEmail");
+    window.location.href = "index.html";
+}
+
+    const userName = localStorage.getItem("userName");
+    const userEmail = localStorage.getItem("userEmail");
+
+    const skill = localStorage.getItem("skill");
+    const knowledgeScore = localStorage.getItem("knowledgeScore");
+    const debugScore = localStorage.getItem("debugScore");
+    const codingScore = localStorage.getItem("codingScore");
+    const overallScore = localStorage.getItem("score");
+
+    const skillStatus = localStorage.getItem("skillStatus");
+    const proofId = localStorage.getItem("proofId");
+    const proofDate = localStorage.getItem("proofDate");
+
+
+    document.getElementById("userName").textContent =
+        userName || "Student";
+
+    document.getElementById("userEmail").textContent =
+        userEmail || "Not available";
+
+    document.getElementById("skill").textContent =
+        skill || "Not available";
+
+
+    document.getElementById("knowledgeScore").textContent =
+        (knowledgeScore || 0) + "%";
+
+    document.getElementById("debugScore").textContent =
+        (debugScore || 0) + "%";
+
+    document.getElementById("codingScore").textContent =
+        (codingScore || 0) + "%";
+
+    document.getElementById("overallScore").textContent =
+        (overallScore || 0) + "%";
+
+
+    document.getElementById("detailSkill").textContent =
+        skill || "-";
+
+    document.getElementById("detailKnowledge").textContent =
+        (knowledgeScore || 0) + "%";
+
+    document.getElementById("detailDebug").textContent =
+        (debugScore || 0) + "%";
+
+    document.getElementById("detailCoding").textContent =
+        (codingScore || 0) + "%";
+
+    document.getElementById("detailOverall").textContent =
+        (overallScore || 0) + "%";
+
+    document.getElementById("skillStatus").textContent =
+        skillStatus || "-";
+
+    document.getElementById("proofId").textContent =
+        proofId || "-";
+
+    document.getElementById("proofDate").textContent =
+        proofDate || "-";
+
+
+    function viewProof() {
+        window.location.href = "proof.html";
+    }
+
+
+    function goToAssessment() {
+        window.location.href = "assessment.html";
+    }
+
+
+    function logout() {
+        localStorage.removeItem("userName");
+        localStorage.removeItem("userEmail");
+
+        window.location.href = "index.html";
+    }
+
+</script>
+
+</body>
+</html>

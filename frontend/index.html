@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Skill Proof</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        header {
+            background: #172554;
+            color: white;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #d4a72c;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 65px 20px 35px;
+        }
+
+        .welcome {
+            color: #d4a72c;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #172554;
+            margin: 10px 0 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        /* BUTTONS */
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            margin: 8px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .primary {
+            background: #172554;
+            color: white;
+        }
+
+        .secondary {
+            background: white;
+            color: #172554;
+            border: 2px solid #172554;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        /* LEARN PRACTICE PROVE */
+        .process {
+            width: 85%;
+            max-width: 900px;
+            margin: 30px auto 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .process h2 {
+            color: #172554;
+            margin-bottom: 25px;
+        }
+
+        .process-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .process-box {
+            width: 200px;
+            padding: 20px;
+            background: #f4f7fb;
+            border-radius: 12px;
+        }
+
+        .process-box h3 {
+            color: #172554;
+            margin-bottom: 8px;
+        }
+
+        .process-box p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .arrow {
+            font-size: 28px;
+            color: #d4a72c;
+            font-weight: bold;
+        }
+
+        /* SKILLS */
+        .skills {
+            text-align: center;
+            padding: 20px 20px 50px;
+        }
+
+        .skills h2 {
+            color: #172554;
+            margin-bottom: 25px;
+        }
+
+        .skill-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .skill-card {
+            background: white;
+            width: 200px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .skill-card h3 {
+            color: #172554;
+        }
+
+        .skill-card p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            background: #172554;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 18px 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+
+            .hero {
+                padding-top: 45px;
+            }
+
+            .welcome {
+                font-size: 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .process-container {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+
+    <h2>🧠 AI Skill Proof</h2>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="login.html">Assessment</a>
+        <a href="profile.html">Profile</a>
+        <a href="ai-feedback.html">AI Analysis</a>
+        <a href="verify.html">Verify</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO SECTION -->
+<section class="hero">
+
+    <h2 class="welcome">Welcome to AI Skill Proof</h2>
+
+    <h1>Prove What You Can Do.</h1>
+
+    <p>
+        Test your skills, solve real problems and earn your AI Skill Proof.
+    </p>
+
+    <div class="buttons">
+
+        <a href="login.html" class="btn primary">
+            🚀 Start Assessment
+        </a>
+
+        <a href="verify.html" class="btn secondary">
+            🔍 Verify Skill Proof
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- LEARN PRACTICE PROVE -->
+<section class="process">
+
+    <h2>Learn • Practice • Prove</h2>
+
+    <div class="process-container">
+
+        <div class="process-box">
+
+            <h3>📚 Learn</h3>
+
+            <p>
+                Build your knowledge and understand important concepts.
+            </p>
+
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="process-box">
+
+            <h3>💻 Practice</h3>
+
+            <p>
+                Solve quizzes, debug programs and complete coding tasks.
+            </p>
+
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="process-box">
+
+            <h3>🏆 Prove</h3>
+
+            <p>
+                Show your skills and earn a verified Skill Proof.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- AVAILABLE SKILLS -->
+<section class="skills">
+
+    <h2>Available Skills</h2>
+
+    <div class="skill-container">
+
+        <div class="skill-card">
+
+            <h3>🐍 Python</h3>
+
+            <p>
+                Test your Python programming skills.
+            </p>
+
+        </div>
+
+        <div class="skill-card">
+
+            <h3>🤖 Machine Learning</h3>
+
+            <p>
+                Test your machine learning knowledge.
+            </p>
+
+        </div>
+
+        <div class="skill-card">
+
+            <h3>📊 Data Analysis</h3>
+
+            <p>
+                Test your data analysis skills.
+            </p>
+
+        </div>
+
+        <div class="skill-card">
+
+            <h3>👁️ Computer Vision</h3>
+
+            <p>
+                Test your computer vision knowledge.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    © 2026 AI Skill Proof | Learn • Practice • Prove
+
+</footer>
+
+
+</body>
+</html>

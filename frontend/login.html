@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - AI Skill Proof</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: white;
+            padding: 20px 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 70px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #222;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #222;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            color: #d32f2f;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">AI Skill Proof</div>
+</header>
+
+<div class="container">
+
+    <h1>Welcome</h1>
+
+    <p class="subtitle">
+        Create your skill profile
+    </p>
+
+    <form onsubmit="loginUser(event)">
+
+        <label for="name">Full Name</label>
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            required
+        >
+
+        <label for="email">Email</label>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+        >
+
+        <button type="submit">
+            Continue
+        </button>
+
+    </form>
+
+    <p class="message" id="message"></p>
+
+    <a href="index.html" class="back">
+        ← Back to Home
+    </a>
+
+</div>
+<script>
+
+async function loginUser(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let message = document.getElementById("message");
+
+    if (name === "" || email === "") {
+
+        message.innerText =
+            "Please enter your name and email.";
+
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:3000/users",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    name: name,
+                    email: email
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+
+            message.innerText =
+                "Unable to save your profile.";
+
+            return;
+        }
+
+        // Save user information locally
+localStorage.removeItem("assessmentFinished");
+localStorage.removeItem("skill");
+localStorage.removeItem("score");
+localStorage.removeItem("skillStatus");
+localStorage.removeItem("proofId");
+localStorage.removeItem("proofDate");
+localStorage.removeItem("knowledgeScore");
+localStorage.removeItem("debugScore");
+localStorage.removeItem("codingScore");
+localStorage.setItem("userName", name);
+localStorage.setItem("userEmail", email);
+
+        // Save database user ID
+        localStorage.setItem(
+            "userId",
+            data.user.id
+        );
+
+        // Go to assessment
+        window.location.href =
+            "assessment.html";
+
+    } catch (error) {
+
+        message.innerText =
+            "Backend server is not running.";
+
+        console.error(error);
+    }
+
+}
+
+</script>
+
+</body>
+</html>

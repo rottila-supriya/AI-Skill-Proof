@@ -1,0 +1,2360 @@
+<!DOCTYPE html>  <html>  <head>  <title>AI Skill Proof - Assessment</title>  
+
+<style>  
+
+    body {  
+        margin: 0;  
+        font-family: Arial, sans-serif;  
+        background: #f4f7fb;  
+        color: #222;  
+    }  
+
+    header {  
+        background: #172554;  
+        color: white;  
+        padding: 18px 40px;  
+        display: flex;  
+        justify-content: space-between;  
+        align-items: center;  
+    }  
+
+    header h2 {  
+        margin: 0;  
+    }  
+
+    nav a {  
+        color: white;  
+        text-decoration: none;  
+        margin-left: 22px;  
+        font-size: 15px;  
+    }  
+
+    nav a:hover {  
+        color: #d4a72c;  
+    }  
+
+    .container {  
+        width: 90%;  
+        max-width: 850px;  
+        margin: 40px auto;  
+    }  
+
+    .box {  
+        background: white;  
+        padding: 35px;  
+        border-radius: 15px;  
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);  
+        margin-bottom: 25px;  
+    }  
+
+    h1,  
+    h2 {  
+        color: #172554;  
+    }  
+
+    .intro {  
+        text-align: center;  
+    }  
+
+    .intro p {  
+        color: #666;  
+        line-height: 1.6;  
+    }  
+
+    select,  
+    input,  
+    textarea {  
+        width: 100%;  
+        padding: 13px;  
+        margin-top: 8px;  
+        margin-bottom: 18px;  
+        border: 1px solid #ccc;  
+        border-radius: 8px;  
+        box-sizing: border-box;  
+        font-size: 15px;  
+    }  
+
+    textarea {  
+        min-height: 150px;  
+        resize: vertical;  
+    }  
+
+    button {  
+        background: #172554;  
+        color: white;  
+        border: none;  
+        padding: 13px 25px;  
+        border-radius: 8px;  
+        cursor: pointer;  
+        font-size: 15px;  
+    }  
+
+    button:hover {  
+        background: #243b80;  
+    }  
+
+    .option {  
+        display: block;  
+        background: #f4f7fb;  
+        padding: 14px;  
+        margin: 12px 0;  
+        border-radius: 8px;  
+        cursor: pointer;  
+    }  
+
+    .option:hover {  
+        background: #e8edf8;  
+    }  
+
+    .option input {  
+        width: auto;  
+        margin: 0 8px 0 0;  
+    }  
+
+    .question-number {  
+        color: #d4a72c;  
+        font-weight: bold;  
+        margin-bottom: 12px;  
+    }  
+
+    .code-box {  
+        background: #111827;  
+        color: #e5e7eb;  
+        padding: 20px;  
+        border-radius: 10px;  
+        white-space: pre-wrap;  
+        font-family: Consolas, monospace;  
+        line-height: 1.6;  
+        margin: 20px 0;  
+        overflow-x: auto;  
+    }  
+
+    .task-title {  
+        border-left: 5px solid #d4a72c;  
+        padding-left: 12px;  
+    }  
+
+    .result-card {  
+        background: #f4f7fb;  
+        padding: 20px;  
+        border-radius: 12px;  
+        margin: 15px 0;  
+    }  
+
+    .result-row {  
+        display: flex;  
+        justify-content: space-between;  
+        padding: 10px 0;  
+        border-bottom: 1px solid #ddd;  
+    }  
+
+    .result-row:last-child {  
+        border-bottom: none;  
+    }  
+
+    .score {  
+        font-size: 30px;  
+        color: #172554;  
+        font-weight: bold;  
+    }  
+
+    .status {  
+        color: #172554;  
+        font-weight: bold;  
+    }  
+
+    .hidden {  
+        display: none;  
+    }  
+
+    .progress {  
+        height: 8px;  
+        background: #ddd;  
+        border-radius: 10px;  
+        margin-bottom: 25px;  
+        overflow: hidden;  
+    }  
+
+    .progress-bar {  
+        height: 100%;  
+        background: #d4a72c;  
+        width: 20%;  
+        transition: width 0.3s;  
+    }  
+
+    @media (max-width: 700px) {  
+
+        header {  
+            flex-direction: column;  
+            gap: 15px;  
+            padding: 18px 15px;  
+        }  
+
+        nav a {  
+            margin: 0 7px;  
+            font-size: 13px;  
+        }  
+
+        .container {  
+            width: 94%;  
+        }  
+
+        .box {  
+            padding: 25px 18px;  
+        }  
+
+    }  
+
+</style>
+
+</head>  <body>  <header>  <h2>🧠 AI Skill Proof</h2>  
+
+<nav>  
+
+    <a href="index.html">Home</a>  
+
+    <a href="skills.html">Skills</a>  
+
+    <a href="login.html">Assessment</a>  
+
+    <a href="profile.html">Profile</a>  
+
+    <a href="verify.html">Verify</a>  
+
+</nav>
+
+</header>  <div class="container">  <!-- START -->  
+
+<div id="startBox" class="box intro">  
+
+    <h1>AI Skill Assessment</h1>  
+
+    <p>  
+        Test your practical knowledge through quizzes,  
+        debugging and coding challenges.  
+    </p>  
+
+    <p>  
+        Every new assessment selects a different set  
+        of questions.  
+    </p>  
+
+    <label><b>Select Your Skill</b></label>  
+
+    <select id="skillSelect">  
+
+        <option value="Python">Python</option>  
+
+        <option value="Machine Learning">  
+            Machine Learning  
+        </option>  
+
+        <option value="Data Analysis">  
+            Data Analysis  
+        </option>  
+
+        <option value="Computer Vision">  
+            Computer Vision  
+        </option>  
+
+    </select>  
+
+    <button id="startButton">  
+        🚀 Start Assessment  
+    </button>  
+
+</div>  
+
+
+<!-- TASK 1 -->  
+
+<div id="task1" class="box hidden">  
+
+    <h2 class="task-title">  
+        Task 1: Knowledge Quiz  
+    </h2>  
+
+    <div class="progress">  
+
+        <div  
+            id="progressBar"  
+            class="progress-bar">  
+        </div>  
+
+    </div>  
+
+    <div  
+        id="questionNumber"  
+        class="question-number">  
+    </div>  
+
+    <h3 id="questionText"></h3>  
+
+    <div id="options"></div>  
+
+    <button id="nextButton">  
+        Next  
+    </button>  
+
+</div>  
+
+
+<!-- TASK 2 -->  
+
+<div id="task2" class="box hidden">  
+
+    <h2 class="task-title">  
+        Task 2: Debug the Program  
+    </h2>  
+
+    <p>  
+        Find the error in the following program  
+        and write the corrected part.  
+    </p>  
+
+    <div  
+        id="debugCode"  
+        class="code-box">  
+    </div>  
+
+    <label>  
+        <b>Your corrected answer:</b>  
+    </label>  
+
+    <input  
+        type="text"  
+        id="debugAnswer"  
+        placeholder="Enter your answer">  
+
+    <button id="debugButton">  
+        Submit & Continue  
+    </button>  
+
+</div>  
+
+
+<!-- TASK 3 -->  
+
+<div id="task3" class="box hidden">  
+
+    <h2 class="task-title">  
+        Task 3: Coding Challenge  
+    </h2>  
+
+    <p id="codingQuestion"></p>  
+
+    <label>  
+        <b>Write your program:</b>  
+    </label>  
+
+    <textarea  
+        id="codingAnswer"  
+        placeholder="Write your Python program here...">  
+    </textarea>  
+
+    <label>  
+        <b>Explain your program:</b>  
+    </label>  
+
+    <textarea  
+        id="explanation"  
+        placeholder="Explain how your program works...">  
+    </textarea>  
+<button type="button" id="finishButton">
+    Finish Assessment
+</button>
+
+</div>  
+
+
+<!-- RESULT -->  
+
+<div id="resultBox" class="box hidden">  
+
+    <h2 class="task-title">  
+        Assessment Result  
+    </h2>  
+
+    <div class="result-card">  
+
+        <div class="result-row">  
+            <span>Skill</span>  
+            <b id="resultSkill"></b>  
+        </div>  
+
+        <div class="result-row">  
+            <span>Knowledge</span>  
+            <b id="resultKnowledge"></b>  
+        </div>  
+
+        <div class="result-row">  
+            <span>Debugging</span>  
+            <b id="resultDebug"></b>  
+        </div>  
+
+        <div class="result-row">  
+            <span>Coding</span>  
+            <b id="resultCoding"></b>  
+        </div>  
+
+        <div class="result-row">  
+            <span>Overall Score</span>  
+            <span  
+                id="resultOverall"  
+                class="score">  
+            </span>  
+        </div>  
+
+        <div class="result-row">  
+            <span>Status</span>  
+            <span  
+                id="resultStatus"  
+                class="status">  
+            </span>  
+        </div>  
+
+    </div>  
+
+    <p id="proofText"></p>  
+
+    <button id="dashboardButton">  
+        📊 Go to Dashboard  
+    </button>  
+    <button onclick="window.location.href='ai-feedback.html'">  
+🤖 View AI Skill Analysis
+
+</button>  </div>
+
+</div>  <script>  
+  
+  
+/* =====================================================  
+   QUIZ QUESTION BANK  
+   ===================================================== */  
+  
+  
+const quizBank = {  
+  
+  
+    "Python": [  
+  
+        [  
+            "Which keyword is used to define a function in Python?",  
+            ["function", "def", "define", "fun"],  
+            "def"  
+        ],  
+  
+        [  
+            "Which symbol is used to create a comment in Python?",  
+            ["//", "#", "/*", "--"],  
+            "#"  
+        ],  
+  
+        [  
+            "Which data type stores True or False?",  
+            ["int", "string", "bool", "float"],  
+            "bool"  
+        ],  
+  
+        [  
+            "Which function is used to display output?",  
+            ["show()", "display()", "print()", "output()"],  
+            "print()"  
+        ],  
+  
+        [  
+            "Which function is used to get input from the user?",  
+            ["get()", "input()", "read()", "scan()"],  
+            "input()"  
+        ],  
+  
+        [  
+            "Which operator is used for exponentiation?",  
+            ["^", "**", "//", "%%"],  
+            "**"  
+        ],  
+  
+        [  
+            "Which collection is ordered and changeable?",  
+            ["tuple", "list", "set", "frozenset"],  
+            "list"  
+        ],  
+  
+        [  
+            "Which brackets are used for a list?",  
+            ["()", "{}", "[]", "<>"],  
+            "[]"  
+        ],  
+  
+        [  
+            "Which keyword is used for a condition?",  
+            ["if", "when", "check", "condition"],  
+            "if"  
+        ],  
+  
+        [  
+            "Which keyword is used when an if condition is false and another condition is checked?",  
+            ["else", "elif", "otherwise", "then"],  
+            "elif"  
+        ],  
+  
+        [  
+            "Which loop is commonly used to iterate over a sequence?",  
+            ["repeat", "for", "loop", "iterate"],  
+            "for"  
+        ],  
+  
+        [  
+            "Which function returns the number of items in a sequence?",  
+            ["count()", "size()", "len()", "length()"],  
+            "len()"  
+        ],  
+  
+        [  
+            "Which method adds an item to the end of a list?",  
+            ["add()", "insert()", "append()", "push()"],  
+            "append()"  
+        ],  
+  
+        [  
+            "Which method removes and returns the last list item?",  
+            ["delete()", "pop()", "remove()", "last()"],  
+            "pop()"  
+        ],  
+  
+        [  
+            "What is the index of the first item in a Python list?",  
+            ["0", "1", "-1", "first"],  
+            "0"  
+        ],  
+  
+        [  
+            "Which data type stores decimal values?",  
+            ["int", "float", "str", "bool"],  
+            "float"  
+        ],  
+  
+        [  
+            "Which operator checks equality?",  
+            ["=", "==", "!=", "==="],  
+            "=="  
+        ],  
+  
+        [  
+            "Which operator means not equal?",  
+            ["<>", "!=", "==", "not="],  
+            "!="  
+        ],  
+  
+        [  
+            "Which keyword stops a loop immediately?",  
+            ["stop", "exit", "break", "end"],  
+            "break"  
+        ],  
+  
+        [  
+            "Which keyword skips the current loop iteration?",  
+            ["skip", "continue", "pass", "next"],  
+            "continue"  
+        ]  
+  
+    ],  
+  
+  
+    "Machine Learning": [  
+  
+        [  
+            "What is supervised learning?",  
+            [  
+                "Learning without data",  
+                "Learning from labelled data",  
+                "Only clustering",  
+                "Only image processing"  
+            ],  
+            "Learning from labelled data"  
+        ],  
+  
+        [  
+            "Which algorithm is commonly used for classification?",  
+            [  
+                "Linear Regression",  
+                "Logistic Regression",  
+                "K-Means",  
+                "PCA"  
+            ],  
+            "Logistic Regression"  
+        ],  
+  
+        [  
+            "What does a training dataset contain?",  
+            [  
+                "Only predictions",  
+                "Data used to train a model",  
+                "Only errors",  
+                "Only test results"  
+            ],  
+            "Data used to train a model"  
+        ],  
+  
+        [  
+            "What is overfitting?",  
+            [  
+                "Model performs well only on training data",  
+                "Model has no data",  
+                "Model is always simple",  
+                "Model cannot train"  
+            ],  
+            "Model performs well only on training data"  
+        ],  
+  
+        [  
+            "Which technique divides data into training and testing portions?",  
+            [  
+                "train_test_split",  
+                "data_merge",  
+                "model_join",  
+                "data_copy"  
+            ],  
+            "train_test_split"  
+        ],  
+  
+        [  
+            "What is classification used for?",  
+            [  
+                "Predicting categories",  
+                "Only calculating averages",  
+                "Sorting files",  
+                "Compressing images"  
+            ],  
+            "Predicting categories"  
+        ],  
+  
+        [  
+            "What is regression mainly used to predict?",  
+            [  
+                "Continuous values",  
+                "Only categories",  
+                "Images",  
+                "Text files"  
+            ],  
+            "Continuous values"  
+        ],  
+  
+        [  
+            "Which algorithm groups similar data points?",  
+            [  
+                "K-Means",  
+                "Linear Regression",  
+                "Logistic Regression",  
+                "Naive Bayes"  
+            ],  
+            "K-Means"  
+        ],  
+  
+        [  
+            "What is a feature in machine learning?",  
+            [  
+                "An input variable",  
+                "A final prediction",  
+                "An error message",  
+                "A program name"  
+            ],  
+            "An input variable"  
+        ],  
+  
+        [  
+            "What is a label?",  
+            [  
+                "Target output",  
+                "Input file",  
+                "Python keyword",  
+                "Database table"  
+            ],  
+            "Target output"  
+        ],  
+  
+        [  
+            "Which metric measures the proportion of correct predictions?",  
+            [  
+                "Accuracy",  
+                "Loss",  
+                "Variance",  
+                "Entropy"  
+            ],  
+            "Accuracy"  
+        ],  
+  
+        [  
+            "What does model training mean?",  
+            [  
+                "Learning patterns from data",  
+                "Deleting data",  
+                "Printing results",  
+                "Closing the program"  
+            ],  
+            "Learning patterns from data"  
+        ],  
+  
+        [  
+            "What is a test dataset used for?",  
+            [  
+                "Evaluating a trained model",  
+                "Creating Python syntax",  
+                "Deleting features",  
+                "Installing libraries"  
+            ],  
+            "Evaluating a trained model"  
+        ],  
+  
+        [  
+            "Which library is widely used for machine learning in Python?",  
+            [  
+                "Scikit-learn",  
+                "Tkinter",  
+                "Turtle",  
+                "Pygame"  
+            ],  
+            "Scikit-learn"  
+        ],  
+  
+        [  
+            "What is unsupervised learning?",  
+            [  
+                "Learning from data without target labels",  
+                "Learning only from labelled data",  
+                "Only testing a model",  
+                "Only predicting numbers"  
+            ],  
+            "Learning from data without target labels"  
+        ],  
+  
+        [  
+            "Which method can reduce the number of features?",  
+            [  
+                "PCA",  
+                "print",  
+                "split",  
+                "append"  
+            ],  
+            "PCA"  
+        ],  
+  
+        [  
+            "What is a prediction?",  
+            [  
+                "Output produced by a model",  
+                "Input feature",  
+                "Training file",  
+                "Python loop"  
+            ],  
+            "Output produced by a model"  
+        ],  
+  
+        [  
+            "What does accuracy = 0.90 usually mean?",  
+            [  
+                "About 90% predictions are correct",  
+                "90% data is missing",  
+                "The model has 90 features",  
+                "Training takes 90 seconds"  
+            ],  
+            "About 90% predictions are correct"  
+        ],  
+  
+        [  
+            "Which algorithm is commonly used for nearest-neighbour classification?",  
+            [  
+                "KNN",  
+                "PCA",  
+                "K-Means",  
+                "Linear Regression"  
+            ],  
+            "KNN"  
+        ],  
+  
+        [  
+            "Why is data preprocessing important?",  
+            [  
+                "To prepare data for modelling",  
+                "To delete the model",  
+                "To avoid using data",  
+                "To replace Python"  
+            ],  
+            "To prepare data for modelling"  
+        ]  
+  
+    ],  
+  
+  
+    "Data Analysis": [  
+  
+        [  
+            "Which Python library is commonly used for data analysis?",  
+            ["Pandas", "Turtle", "Pygame", "Tkinter"],  
+            "Pandas"  
+        ],  
+  
+        [  
+            "Which Pandas structure stores labelled columns?",  
+            ["DataFrame", "Loop", "Function", "String"],  
+            "DataFrame"  
+        ],  
+  
+        [  
+            "Which function reads a CSV file in Pandas?",  
+            ["read_csv()", "open_csv()", "csv_read()", "load_csv()"],  
+            "read_csv()"  
+        ],  
+  
+        [  
+            "Which function displays the first rows of a DataFrame?",  
+            ["head()", "first()", "top()", "start()"],  
+            "head()"  
+        ],  
+  
+        [  
+            "Which function displays the last rows?",  
+            ["end()", "tail()", "last()", "bottom()"],  
+            "tail()"  
+        ],  
+  
+        [  
+            "What does df.shape provide?",  
+            [  
+                "Rows and columns",  
+                "Only column names",  
+                "Only data types",  
+                "Only missing values"  
+            ],  
+            "Rows and columns"  
+        ],  
+  
+        [  
+            "Which method gives summary statistics?",  
+            [  
+                "describe()",  
+                "summary()",  
+                "statistics()",  
+                "info_stats()"  
+            ],  
+            "describe()"  
+        ],  
+  
+        [  
+            "Which method checks basic DataFrame information?",  
+            ["info()", "details()", "check()", "about()"],  
+            "info()"  
+        ],  
+  
+        [  
+            "Which value represents the average?",  
+            ["Mean", "Mode", "Range", "Median"],  
+            "Mean"  
+        ],  
+  
+        [  
+            "Which value is the middle value after sorting?",  
+            ["Mean", "Median", "Mode", "Range"],  
+            "Median"  
+        ],  
+  
+        [  
+            "Which value occurs most frequently?",  
+            ["Mode", "Mean", "Median", "Range"],  
+            "Mode"  
+        ],
+        [  
+            "What is a missing value?",  
+            [  
+                "A value that is unavailable",  
+                "A duplicate value",  
+                "A correct value",  
+                "A column name"  
+            ],  
+            "A value that is unavailable"  
+        ],  
+  
+        [  
+            "Which Pandas function can detect missing values?",  
+            ["isnull()", "missing()", "empty()", "findnull()"],  
+            "isnull()"  
+        ],  
+  
+        [  
+            "Which method can remove rows containing missing values?",  
+            ["dropna()", "removeNull()", "deleteNA()", "clearNA()"],  
+            "dropna()"  
+        ],  
+  
+        [  
+            "Which method can replace missing values?",  
+            ["fillna()", "replaceNA()", "fixna()", "addna()"],  
+            "fillna()"  
+        ],  
+  
+        [  
+            "What is data visualization?",  
+            [  
+                "Representing data graphically",  
+                "Deleting data",  
+                "Encrypting data",  
+                "Writing Python comments"  
+            ],  
+            "Representing data graphically"  
+        ],  
+  
+        [  
+            "Which library is commonly used for plotting in Python?",  
+            ["Matplotlib", "Pandas", "NumPy", "OS"],  
+            "Matplotlib"  
+        ],  
+  
+        [  
+            "What is a dataset?",  
+            [  
+                "A collection of data",  
+                "A Python keyword",  
+                "A graph only",  
+                "A single function"  
+            ],  
+            "A collection of data"  
+        ],  
+  
+        [  
+            "What does filtering data mean?",  
+            [  
+                "Selecting data that meets a condition",  
+                "Deleting the entire dataset",  
+                "Changing Python",  
+                "Creating a new language"  
+            ],  
+            "Selecting data that meets a condition"  
+        ],  
+  
+        [  
+            "Why do analysts clean data?",  
+            [  
+                "To improve data quality",  
+                "To remove all information",  
+                "To stop analysis",  
+                "To change the computer"  
+            ],  
+            "To improve data quality"  
+        ]  
+  
+    ],  
+  
+  
+    "Computer Vision": [  
+  
+        [  
+            "Which Python library is commonly used for computer vision?",  
+            ["OpenCV", "Pandas", "Flask", "NumPy only"],  
+            "OpenCV"  
+        ],  
+  
+        [  
+            "Which function reads an image using OpenCV?",  
+            ["cv2.imread()", "cv2.read()", "cv2.image()", "cv2.load()"],  
+            "cv2.imread()"  
+        ],  
+  
+        [  
+            "Which function displays an image?",  
+            ["cv2.imshow()", "cv2.show()", "cv2.display()", "cv2.view()"],  
+            "cv2.imshow()"  
+        ],  
+  
+        [  
+            "Which function waits for a keyboard event?",  
+            ["cv2.waitKey()", "cv2.wait()", "cv2.key()", "cv2.pause()"],  
+            "cv2.waitKey()"  
+        ],  
+  
+        [  
+            "Which function closes OpenCV windows?",  
+            [  
+                "cv2.destroyAllWindows()",  
+                "cv2.closeWindows()",  
+                "cv2.closeAll()",  
+                "cv2.removeWindows()"  
+            ],  
+            "cv2.destroyAllWindows()"  
+        ],  
+  
+        [  
+            "Which color space is commonly used for grayscale images?",  
+            ["Gray", "RGB", "CMYK", "HSV only"],  
+            "Gray"  
+        ],  
+  
+        [  
+            "Which function converts an image from one color space to another?",  
+            ["cv2.cvtColor()", "cv2.convert()", "cv2.color()", "cv2.changeColor()"],  
+            "cv2.cvtColor()"  
+        ],  
+  
+        [  
+            "What does grayscale mean?",  
+            [  
+                "Image represented mainly by intensity",  
+                "Image with only red pixels",  
+                "Image with only blue pixels",  
+                "Image with random colors"  
+            ],  
+            "Image represented mainly by intensity"  
+        ],  
+  
+        [  
+            "What is image processing?",  
+            [  
+                "Manipulating or analysing images",  
+                "Only creating websites",  
+                "Only writing text",  
+                "Only storing passwords"  
+            ],  
+            "Manipulating or analysing images"  
+        ],  
+  
+        [  
+            "What is a pixel?",  
+            [  
+                "A small picture element",  
+                "A Python function",  
+                "A file extension",  
+                "A database"  
+            ],  
+            "A small picture element"  
+        ],  
+  
+        [  
+            "Which format is commonly used for images?",  
+            ["JPG", "PY", "CSV", "HTML"],  
+            "JPG"  
+        ],  
+  
+        [  
+            "What does RGB stand for?",  
+            [  
+                "Red Green Blue",  
+                "Red Gray Black",  
+                "Random Green Blue",  
+                "Red Gold Brown"  
+            ],  
+            "Red Green Blue"  
+        ],  
+  
+        [  
+            "Which OpenCV object commonly stores an image?",  
+            ["NumPy array", "HTML table", "Text file", "SQL query"],  
+            "NumPy array"  
+        ],  
+  
+        [  
+            "What is edge detection used for?",  
+            [  
+                "Finding boundaries in an image",  
+                "Playing audio",  
+                "Sorting numbers",  
+                "Sending emails"  
+            ],  
+            "Finding boundaries in an image"  
+        ],  
+  
+        [  
+            "Which OpenCV function is commonly used for Canny edge detection?",  
+            ["cv2.Canny()", "cv2.Edge()", "cv2.Detect()", "cv2.Border()"],  
+            "cv2.Canny()"  
+        ],  
+  
+        [  
+            "What is image resizing?",  
+            [  
+                "Changing image dimensions",  
+                "Changing Python syntax",  
+                "Deleting pixels only",  
+                "Changing file name only"  
+            ],  
+            "Changing image dimensions"  
+        ],  
+  
+        [  
+            "Which function can resize an image in OpenCV?",  
+            ["cv2.resize()", "cv2.changeSize()", "cv2.scaleImage()", "cv2.imageResize()"],  
+            "cv2.resize()"  
+        ],  
+  
+        [  
+            "What is object detection?",  
+            [  
+                "Finding objects in an image",  
+                "Deleting objects",  
+                "Creating spreadsheets",  
+                "Sorting text"  
+            ],  
+            "Finding objects in an image"  
+        ],  
+  
+        [  
+            "What does image thresholding do?",  
+            [  
+                "Separates pixels based on intensity conditions",  
+                "Adds sound to an image",  
+                "Creates a database",  
+                "Writes Python comments"  
+            ],  
+            "Separates pixels based on intensity conditions"  
+        ],  
+  
+        [  
+            "Which file extension is commonly used for PNG images?",  
+            [".png", ".py", ".csv", ".txt"],  
+            ".png"  
+        ]  
+  
+    ]  
+  
+};  
+  
+  
+/* =====================================================
+DEBUGGING QUESTION BANK  
+   ===================================================== */  
+  
+  
+const debugBank = {  
+  
+  
+    "Python": [  
+  
+        {  
+            code:  
+                "name = input('Enter name: ')\n" +  
+                "print(Name)",  
+  
+            answer: "name"  
+        },  
+  
+        {  
+            code:  
+                "numbers = [10, 20, 30]\n" +  
+                "print(numbers[3])",  
+  
+            answer: "numbers[2]"  
+        },  
+  
+        {  
+            code:  
+                "for i in range(5)\n" +  
+                "    print(i)",  
+  
+            answer: ":"  
+        },  
+  
+        {  
+            code:  
+                "age = input('Enter age: ')\n" +  
+                "print(age + 5)",  
+  
+            answer: "int(age)"  
+        },  
+  
+        {  
+            code:  
+                "def add(a, b)\n" +  
+                "    return a + b",  
+  
+            answer: ":"  
+        },  
+  
+        {  
+            code:  
+                "x = 10\n" +  
+                "if x > 5\n" +  
+                "    print(x)",  
+  
+            answer: ":"  
+        },  
+  
+        {  
+            code:  
+                "numbers = [1, 2, 3]\n" +  
+                "numbers.append[4]",  
+  
+            answer: "append(4)"  
+        },  
+  
+        {  
+            code:  
+                "for number in numbers:\n" +  
+                "print(number)",  
+  
+            answer: "indent"  
+        },  
+  
+        {  
+            code:  
+                "text = 'Python'\n" +  
+                "print(text[10])",  
+  
+            answer: "text[5]"  
+        },  
+  
+        {  
+            code:  
+                "x = 10\n" +  
+                "y = 0\n" +  
+                "print(x / y)",  
+  
+            answer: "y != 0"  
+        }  
+  
+    ],  
+  
+  
+    "Machine Learning": [  
+  
+        {  
+            code:  
+                "from sklearn.model_selection import train_test_split\n" +  
+                "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=1.2)",  
+  
+            answer: "test_size=0.2"  
+        },  
+  
+        {  
+            code:  
+                "from sklearn.linear_model import LinearRegression\n" +  
+                "model = LinearRegression\n" +  
+                "model.fit(X, y)",  
+  
+            answer: "LinearRegression()"  
+        },  
+  
+        {  
+            code:  
+                "from sklearn.metrics import accuracy_score\n" +  
+                "score = accuracy_score(y_test y_pred)",  
+  
+            answer: "y_test, y_pred"  
+        },  
+  
+        {  
+            code:  
+                "from sklearn.preprocessing import StandardScaler\n" +  
+                "scaler = StandardScaler\n" +  
+                "X_scaled = scaler.fit_transform(X)",  
+  
+            answer: "StandardScaler()"  
+        },  
+  
+        {  
+            code:  
+                "from sklearn.neighbors import KNeighborsClassifier\n" +  
+                "model = KNeighborsClassifier\n" +  
+                "model.fit(X_train, y_train)",  
+  
+            answer: "KNeighborsClassifier()"  
+        },  
+  
+        {  
+            code:  
+                "from sklearn.tree import DecisionTreeClassifier\n" +  
+                "model = DecisionTreeClassifier\n" +  
+                "model.fit(X, y)",  
+  
+            answer: "DecisionTreeClassifier()"  
+        },  
+  
+        {  
+            code:  
+                "from sklearn.cluster import KMeans\n" +  
+                "model = KMeans(n_clusters=0)",  
+  
+            answer: "n_clusters=3"  
+        },  
+  
+        {  
+            code:  
+                "prediction = model.predict(X_test)\n" +  
+                "print(predictions)",  
+  
+            answer: "prediction"  
+        },  
+  
+        {  
+            code:  
+                "from sklearn.metrics import mean_squared_error\n" +  
+                "error = mean_squared_error(y_test y_pred)",  
+  
+            answer: "y_test, y_pred"  
+        },  
+  
+        {  
+            code:  
+                "model.fit(X_train, y_test)",  
+  
+            answer: "y_train"  
+        }  
+  
+    ],  
+  
+  
+    "Data Analysis": [  
+  
+        {  
+            code:  
+                "import pandas as pd\n" +  
+                "df = pd.read_csv('data.csv')\n" +  
+                "print(df.headd())",  
+  
+            answer: "head()"  
+        },  
+  
+        {  
+            code:  
+                "import pandas as pd\n" +  
+                "df = pd.read_csv('data.csv')\n" +  
+                "print(df.shap)",  
+  
+            answer: "shape"  
+        },  
+  
+        {  
+            code:  
+                "print(df.describ())",  
+  
+            answer: "describe()"  
+        },  
+  
+        {  
+            code:  
+                "print(df.infor())",  
+  
+            answer: "info()"  
+        },  
+  
+        {  
+            code:  
+                "df = df.dropn()",  
+  
+            answer: "dropna()"  
+        },  
+  
+        {  
+            code:  
+                "df['Age'] = df['Age'].filln(0)",  
+  
+            answer: "fillna(0)"  
+        },  
+  
+        {  
+            code:  
+                "df['Name'].uppper()",  
+  
+            answer: "upper()"  
+        },  
+  
+        {  
+            code:  
+                "print(df['Age'].mea())",  
+  
+            answer: "mean()"  
+        },  
+  
+        {  
+            code:  
+                "print(df.tali())",  
+  
+            answer: "tail()"  
+        },  
+  
+        {  
+            code:  
+                "df = pd.read_cvs('students.csv')",  
+  
+            answer: "read_csv"  
+        }  
+  
+    ],  
+  
+  
+    "Computer Vision": [  
+  
+        {  
+            code:  
+                "gray = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)",  
+  
+            answer: "COLOR_BGR2GRAY"  
+        },  
+  
+        {  
+            code:  
+                "cv2.waitkey(0)",  
+  
+            answer: "waitKey"  
+        },  
+  
+        {  
+            code:  
+                "image = cv2.imred('photo.jpg')",  
+  
+            answer: "imread"  
+        },  
+  
+        {  
+            code:  
+                "cv2.imshw('Image', image)",  
+  
+            answer: "imshow"  
+        },  
+  
+        {  
+            code:  
+                "cv2.waitkey(0)\n" +  
+                "cv2.destroy",  
+  
+            answer: "destroyAllWindows()"  
+        },  
+  
+        {  
+            code:  
+                "image = cv2.imread('photo.jpg')\n" +  
+                "cv2.imshow('Image', image)\n" +  
+                "cv2.waitKey(0)\n" +  
+                "cv2.destroyAllWindow()",  
+  
+            answer: "destroyAllWindows()"  
+        },  
+  
+        {  
+            code:  
+                "gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAYG)",  
+  
+            answer: "COLOR_BGR2GRAY"  
+        },  
+  
+        {  
+            code:  
+                "resized = cv2.resiz(image, (500, 500))",  
+  
+            answer: "resize"  
+        },  
+  
+        {  
+            code:  
+                "edges = cv2.Canny(image, 100)",  
+  
+            answer: "100, 200"  
+        },  
+  
+        {  
+            code:  
+                "image = cv2.imread(photo.jpg)",  
+  
+            answer: "'photo.jpg'"  
+        }  
+  
+    ]  
+  
+};  
+  
+  
+/* =====================================================  
+   CODING QUESTION BANK  
+   ===================================================== */  
+  
+  
+const codingBank = {  
+  
+  
+    "Python": [  
+  
+        "Write a Python program to find the largest number in a list.",  
+  
+        "Write a Python program to calculate the average of numbers in a list.",  
+  
+        "Write a Python program to check whether a number is prime.",  
+  
+        "Write a Python program to reverse a string.",  
+  
+        "Write a Python program to count vowels in a string.",  
+  
+        "Write a Python program to find the sum of all numbers in a list.",  
+  
+        "Write a Python program to check whether a string is a palindrome.",  
+  
+        "Write a Python program to find even numbers from a list.",  
+  
+        "Write a Python program to swap two numbers without using a third variable.",  
+  
+        "Write a Python program to find the smallest number in a list."  
+  
+    ],  
+  
+  
+    "Machine Learning": [  
+  
+        "Write a Python program using Pandas and Scikit-learn to split a dataset into training and testing data.",  
+  
+        "Write a simple Python program to train a Linear Regression model using sample data.",  
+  
+        "Write a Python program to calculate prediction accuracy using accuracy_score.",  
+  
+        "Write a simple KNN classification program using Scikit-learn.",  
+  
+        "Write a Python program to load a CSV dataset using Pandas and display its first five rows.",  
+  
+        "Write a simple Python program to train a Decision Tree classifier.",  
+  
+        "Write a Python program to scale numerical data using StandardScaler.",  
+  
+        "Write a simple Python program to create a K-Means clustering model.",  
+  
+        "Write a Python program to separate features and target values from a dataset.",  
+  
+        "Write a simple Python program to train a Logistic Regression model."  
+  
+    ],  
+  
+  
+    "Data Analysis": [  
+  
+        "Write a Python program using Pandas to read a CSV file and display the first five rows.",  
+  
+        "Write a Python program to find the average of a numerical column.",  
+  
+        "Write a Python program to find and display missing values in a DataFrame.",  
+  
+        "Write a Python program to remove rows containing missing values.",  
+  
+        "Write a Python program to replace missing values with zero.",  
+  
+        "Write a Python program to display the shape of a DataFrame.",  
+  
+        "Write a Python program to display summary statistics of a dataset.",  
+  
+        "Write a Python program to filter rows where Age is greater than 18.",  
+  
+        "Write a Python program to find the maximum value in a DataFrame column.",  
+  
+        "Write a Python program to display the last five rows of a dataset."  
+  
+    ],  
+  
+  
+    "Computer Vision": [  
+  
+        "Write a Python program to read and display an image using OpenCV.",  
+  
+        "Write a Python program to convert an image into grayscale.",  
+  
+        "Write a Python program to display an image using OpenCV.",  
+  
+        "Write a Python program to load an image and wait for a key press.",  
+  
+        "Write a Python program to read an image and convert it to grayscale.",  
+  
+        "Write a Python program to resize an image using OpenCV.",  
+  
+        "Write a Python program to detect edges using the Canny method.",  
+  
+        "Write a Python program to read an image and display its dimensions.",  
+  
+        "Write a Python program to open an image and close the OpenCV window correctly.",  
+  
+        "Write a Python program to convert an image from BGR to grayscale."  
+  
+    ]  
+  
+};  
+  
+  
+/* =====================================================  
+   VARIABLES
+   ===================================================== */  
+  
+  
+let selectedSkill = "";  
+  
+let quizQuestions = [];  
+  
+let currentQuestion = 0;  
+  
+let quizScore = 0;  
+  
+let debugProblem = null;  
+  
+let codingProblem = "";  
+  
+  
+/* =====================================================  
+   RANDOM QUESTION SYSTEM  
+   ===================================================== */  
+  
+  
+function shuffleArray(array) {  
+  
+    let copy = array.slice();  
+  
+    for (let i = copy.length - 1; i > 0; i--) {  
+  
+        let j =  
+            Math.floor(Math.random() * (i + 1));  
+  
+        let temp = copy[i];  
+  
+        copy[i] = copy[j];  
+  
+        copy[j] = temp;  
+    }  
+  
+    return copy;  
+}  
+  
+  
+function getUnusedQuestions(  
+    array,  
+    storageKey,  
+    count  
+) {  
+  
+    let used = [];  
+  
+    try {  
+  
+        used =  
+            JSON.parse(  
+                localStorage.getItem(storageKey)  
+            ) || [];  
+  
+    } catch (error) {  
+  
+        used = [];  
+  
+    }  
+  
+  
+    let available = [];  
+  
+    for (let i = 0; i < array.length; i++) {  
+  
+        if (used.indexOf(i) === -1) {  
+  
+            available.push(i);  
+        }  
+  
+    }  
+  
+  
+    /*  
+       If all questions were already used,  
+       start a fresh question cycle.  
+    */  
+  
+    if (available.length < count) {  
+  
+        used = [];  
+  
+        available = [];  
+  
+        for (let i = 0; i < array.length; i++) {  
+  
+            available.push(i);  
+        }  
+  
+    }  
+  
+  
+    available =  
+        shuffleArray(available);  
+  
+  
+    let selectedIndexes =  
+        available.slice(0, count);  
+  
+  
+    localStorage.setItem(  
+        storageKey,  
+        JSON.stringify(  
+            used.concat(selectedIndexes)  
+        )  
+    );  
+  
+  
+    let selected = [];  
+  
+    for (let i = 0; i < selectedIndexes.length; i++) {  
+  
+        selected.push(  
+            array[selectedIndexes[i]]  
+        );  
+  
+    }  
+  
+    return selected;  
+}  
+  
+  
+function getUnusedSingle(  
+    array,  
+    storageKey  
+) {  
+  
+    let selected =  
+        getUnusedQuestions(  
+            array,  
+            storageKey,  
+            1  
+        );  
+  
+    return selected[0];  
+}  
+  
+  
+/* =====================================================  
+   START ASSESSMENT  
+   ===================================================== */  
+  
+  
+document.getElementById("startButton").onclick =  
+    function () {  
+  
+  
+        selectedSkill =  
+            document  
+                .getElementById("skillSelect")  
+                .value;  
+  
+  
+        quizQuestions =  
+            getUnusedQuestions(  
+                quizBank[selectedSkill],  
+                "usedQuiz_" + selectedSkill,  
+                5  
+            );  
+  
+  
+        currentQuestion = 0;  
+  
+        quizScore = 0;  
+  
+  
+        debugProblem =  
+            getUnusedSingle(  
+                debugBank[selectedSkill],  
+                "usedDebug_" + selectedSkill  
+            );  
+  
+  
+        codingProblem =  
+            getUnusedSingle(  
+                codingBank[selectedSkill],  
+                "usedCoding_" + selectedSkill  
+            );  
+  
+  
+        document  
+            .getElementById("startBox")  
+            .classList.add("hidden");  
+  
+  
+        document  
+            .getElementById("task1")  
+            .classList.remove("hidden");  
+  
+  
+        showQuestion();  
+  
+    };  
+  
+  
+/* =====================================================  
+   SHOW QUIZ QUESTION  
+   ===================================================== */  
+  
+  
+function showQuestion() {  
+  
+  
+    let question =  
+        quizQuestions[currentQuestion];  
+  
+  
+    document  
+        .getElementById("questionNumber")  
+        .textContent =  
+            "Question " +  
+            (currentQuestion + 1) +  
+            " of 5";  
+  
+  
+    document  
+        .getElementById("questionText")  
+        .textContent =  
+            question[0];  
+  
+  
+    let optionsHTML = "";  
+  
+  
+    let shuffledOptions =  
+        shuffleArray(question[1]);  
+  
+  
+    for (  
+        let i = 0;  
+        i < shuffledOptions.length;  
+        i++  
+    ) {  
+  
+        optionsHTML +=  
+  
+            '<label class="option">' +  
+  
+            '<input type="radio" ' +  
+  
+            'name="answer" value="' +  
+  
+            shuffledOptions[i] +  
+  
+            '">' +  
+  
+            shuffledOptions[i] +  
+  
+            '</label>';  
+  
+    }  
+  
+  
+    document  
+        .getElementById("options")  
+        .innerHTML =  
+            optionsHTML;  
+  
+  
+    let progress =  
+        ((currentQuestion + 1) / 5) * 100;  
+  
+  
+    document  
+        .getElementById("progressBar")  
+        .style.width =  
+            progress + "%";  
+  
+  
+    if (currentQuestion === 4) {  
+  
+        document  
+            .getElementById("nextButton")  
+            .textContent =  
+                "Finish Quiz";  
+  
+    } else {  
+  
+        document  
+            .getElementById("nextButton")  
+            .textContent =  
+                "Next";  
+  
+    }  
+  
+}  
+  
+  
+/* =====================================================  
+   QUIZ NEXT BUTTON  
+   ===================================================== */  
+  
+  
+document.getElementById("nextButton").onclick =  
+    function () {  
+  
+  
+        let selected =  
+            document.querySelector(  
+                'input[name="answer"]:checked'  
+            );  
+  
+  
+        if (!selected) {  
+  
+            alert(  
+                "Please select an answer."  
+            );  
+  
+            return;  
+  
+        }  
+  
+  
+        if (  
+            selected.value ===  
+            quizQuestions[currentQuestion][2]  
+        ) {  
+  
+            quizScore++;  
+  
+        }  
+  
+  
+        currentQuestion++;  
+  
+  
+        if (currentQuestion < 5) {  
+  
+            showQuestion();  
+  
+        } else {  
+  
+  
+            document  
+                .getElementById("task1")  
+                .classList.add("hidden");  
+  
+  
+            document  
+                .getElementById("task2")  
+                .classList.remove("hidden");  
+  
+  
+            showDebugQuestion();  
+  
+        }  
+  
+    };  
+  
+  
+/* =====================================================  
+   DEBUG QUESTION  
+   ===================================================== */
+   function showDebugQuestion() {  
+  
+  
+    document  
+        .getElementById("debugCode")  
+        .textContent =  
+            debugProblem.code;  
+  
+  
+    document  
+        .getElementById("debugAnswer")  
+        .value = "";  
+  
+}  
+  
+  
+/* =====================================================  
+   DEBUG BUTTON  
+   ===================================================== */  
+  
+  
+document.getElementById("debugButton").onclick =  
+    function () {  
+  
+  
+        let answer =  
+            document  
+                .getElementById("debugAnswer")  
+                .value  
+                .trim();  
+  
+  
+        if (answer === "") {  
+  
+            alert(  
+                "Please write the corrected answer."  
+            );  
+  
+            return;  
+  
+        }  
+  
+  
+        document  
+            .getElementById("task2")  
+            .classList.add("hidden");  
+  
+  
+        document  
+            .getElementById("task3")  
+            .classList.remove("hidden");  
+  
+  
+        document  
+            .getElementById("codingQuestion")  
+            .textContent =  
+                codingProblem;  
+  
+    };  
+  
+  
+/* =====================================================  
+   FINISH ASSESSMENT  
+   ===================================================== */  
+document.getElementById("finishButton").onclick =
+    async function () {
+
+        let code =
+            document
+                .getElementById("codingAnswer")
+                .value
+                .trim();
+
+        let explanation =
+            document
+                .getElementById("explanation")
+                .value
+                .trim();
+
+        if (code === "" || explanation === "") {
+
+            alert(
+                "Please write your program and explanation."
+            );
+
+            return;
+        }
+
+        let knowledgeScore =
+            quizScore * 20;
+
+        let debugAnswer =
+            document
+                .getElementById("debugAnswer")
+                .value
+                .trim();
+
+        let debugScore = 0;
+
+        if (
+            debugAnswer
+                .toLowerCase()
+                .includes(
+                    debugProblem.answer.toLowerCase()
+                )
+        ) {
+            debugScore = 100;
+        }
+
+        let codingScore = 0;
+
+        if (code.length >= 40) {
+            codingScore = 60;
+        } else if (code.length >= 15) {
+            codingScore = 30;
+        }
+
+        if (explanation.length >= 50) {
+            codingScore += 40;
+        } else if (explanation.length >= 20) {
+            codingScore += 20;
+        }
+
+        if (codingScore > 100) {
+            codingScore = 100;
+        }
+
+        let overall =
+            Math.round(
+                (knowledgeScore * 0.30) +
+                (debugScore * 0.30) +
+                (codingScore * 0.40)
+            );
+
+        let status = "";
+
+        if (overall >= 70) {
+            status = "Skill Demonstrated";
+        } else if (overall >= 50) {
+            status = "Developing Skill";
+        } else {
+            status = "Needs Improvement";
+        }
+
+        let proofId =
+            "ASP-" +
+            Date.now()
+                .toString()
+                .slice(-6);
+
+        let proofDate =
+            new Date()
+                .toLocaleDateString();
+
+        /* SAVE LOCALLY */
+
+        localStorage.setItem(
+            "skill",
+            selectedSkill
+        );
+
+        localStorage.setItem(
+            "score",
+            overall
+        );
+
+        localStorage.setItem(
+            "skillStatus",
+            status
+        );
+
+        localStorage.setItem(
+            "proofId",
+            proofId
+        );
+
+        localStorage.setItem(
+            "proofDate",
+            proofDate
+        );
+
+        localStorage.setItem(
+            "knowledgeScore",
+            knowledgeScore
+        );
+
+        localStorage.setItem(
+            "debugScore",
+            debugScore
+        );
+
+        localStorage.setItem(
+            "codingScore",
+            codingScore
+        );
+
+        /* REMEMBER THAT ASSESSMENT IS FINISHED */
+
+        localStorage.setItem(
+            "assessmentFinished",
+            "true"
+        );
+
+        /* SAVE TO BACKEND */
+
+        fetch(
+            "http://localhost:3000/assessments",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    userId:
+                        localStorage.getItem(
+                            "userId"
+                        ),
+
+                    userName:
+                        localStorage.getItem(
+                            "userName"
+                        ) || "Student",
+
+                    skill:
+                        selectedSkill,
+
+                    knowledgeScore:
+                        knowledgeScore,
+
+                    debugScore:
+                        debugScore,
+
+                    codingScore:
+                        codingScore,
+
+                    overallScore:
+                        overall,
+
+                    status:
+                        status,
+
+                    proofId:
+                        proofId,
+
+                    proofDate:
+                        proofDate
+                })
+            }
+        )
+        .then(function (response) {
+
+            if (response.ok) {
+
+                console.log(
+                    "Assessment saved to backend."
+                );
+
+            } else {
+
+                console.log(
+                    "Assessment was not saved."
+                );
+            }
+
+        })
+        .catch(function (error) {
+
+            console.log(
+                "Backend connection error:",
+                error
+            );
+
+        });
+
+        /* SHOW RESULT IMMEDIATELY */
+
+        document
+            .getElementById("startBox")
+            .classList.add("hidden");
+
+        document
+            .getElementById("task1")
+            .classList.add("hidden");
+
+        document
+            .getElementById("task2")
+            .classList.add("hidden");
+
+        document
+            .getElementById("task3")
+            .classList.add("hidden");
+
+        document
+            .getElementById("resultBox")
+            .classList.remove("hidden");
+
+        document
+            .getElementById("resultSkill")
+            .textContent =
+                selectedSkill;
+
+        document
+            .getElementById("resultKnowledge")
+            .textContent =
+                knowledgeScore + "%";
+
+        document
+            .getElementById("resultDebug")
+            .textContent =
+                debugScore + "%";
+
+        document
+            .getElementById("resultCoding")
+            .textContent =
+                codingScore + "%";
+
+        document
+            .getElementById("resultOverall")
+            .textContent =
+                overall + "%";
+
+        document
+            .getElementById("resultStatus")
+            .textContent =
+                status;
+
+        document
+            .getElementById("proofText")
+            .textContent =
+                "Proof ID: " +
+                proofId +
+                " | Date: " +
+                proofDate;
+    };
+  
+document.getElementById("dashboardButton").onclick =  
+    function () {  
+  
+        window.location.href =  
+            "dashboard.html";  
+  
+    };  
+    /* RESTORE RESULT AFTER PAGE RELOAD */
+
+if (
+    localStorage.getItem(
+        "assessmentFinished"
+    ) === "true"
+) {
+
+    document
+        .getElementById("startBox")
+        .classList.add("hidden");
+
+    document
+        .getElementById("task1")
+        .classList.add("hidden");
+
+    document
+        .getElementById("task2")
+        .classList.add("hidden");
+
+    document
+        .getElementById("task3")
+        .classList.add("hidden");
+
+    document
+        .getElementById("resultBox")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("resultSkill")
+        .textContent =
+            localStorage.getItem("skill");
+
+    document
+        .getElementById("resultKnowledge")
+        .textContent =
+            localStorage.getItem(
+                "knowledgeScore"
+            ) + "%";
+
+    document
+        .getElementById("resultDebug")
+        .textContent =
+            localStorage.getItem(
+                "debugScore"
+            ) + "%";
+
+    document
+        .getElementById("resultCoding")
+        .textContent =
+            localStorage.getItem(
+                "codingScore"
+            ) + "%";
+
+    document
+        .getElementById("resultOverall")
+        .textContent =
+            localStorage.getItem(
+                "score"
+            ) + "%";
+
+    document
+        .getElementById("resultStatus")
+        .textContent =
+            localStorage.getItem(
+                "skillStatus"
+            );
+
+    document
+        .getElementById("proofText")
+        .textContent =
+            "Proof ID: " +
+            localStorage.getItem(
+                "proofId"
+            ) +
+            " | Date: " +
+            localStorage.getItem(
+                "proofDate"
+            );
+}
+  
+  
+</script>  </body>  
+</html>

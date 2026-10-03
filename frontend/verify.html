@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Skill Proof - Verify</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            padding: 20px 40px;
+        }
+
+        header h2 {
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 60px auto;
+        }
+
+        .box {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #172554;
+        }
+
+        .subtitle {
+            color: #666;
+        }
+
+        input {
+            width: 90%;
+            padding: 14px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 13px 25px;
+            background: #172554;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e40af;
+        }
+
+        #result {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            background: #ecfdf5;
+            border: 1px solid #86efac;
+            text-align: left;
+        }
+
+        .verified {
+            text-align: center;
+            color: #15803d;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .row {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .row strong {
+            float: right;
+        }
+
+        #notFound {
+            display: none;
+            margin-top: 25px;
+            color: #dc2626;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h2>🧠 AI Skill Proof</h2>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="login.html">Assessment</a>
+        <a href="profile.html">Profile</a>
+        <a href="verify.html">Verify</a>
+    </nav>
+</header>
+
+
+<div class="container">
+
+    <div class="box">
+
+        <h1>Verify Skill Proof 🔍</h1>
+
+        <p class="subtitle">
+            Enter the Proof ID to verify a student's skill.
+        </p>
+
+        <input
+            type="text"
+            id="proofInput"
+            placeholder="Enter Proof ID"
+        >
+
+        <br>
+
+        <button onclick="verifyProof()">
+            Verify Proof
+        </button>
+
+
+        <div id="result">
+
+            <div class="verified">
+                ✅ Proof Verified
+            </div>
+
+            <br>
+
+            <div class="row">
+                Student
+                <strong id="studentName">-</strong>
+            </div>
+
+            <div class="row">
+                Skill
+                <strong id="studentSkill">-</strong>
+            </div>
+
+            <div class="row">
+                Overall Score
+                <strong id="studentScore">-</strong>
+            </div>
+
+            <div class="row">
+                Status
+                <strong id="studentStatus">-</strong>
+            </div>
+
+            <div class="row">
+                Assessment Date
+                <strong id="studentDate">-</strong>
+            </div>
+
+            <div class="row">
+                Proof ID
+                <strong id="studentProofId">-</strong>
+            </div>
+
+        </div>
+
+
+        <div id="notFound">
+            ❌ Proof ID not found. Please check the ID and try again.
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function verifyProof() {
+
+        const enteredId =
+            document.getElementById("proofInput").value.trim();
+
+        const savedId =
+            localStorage.getItem("proofId");
+
+
+        document.getElementById("result").style.display = "none";
+        document.getElementById("notFound").style.display = "none";
+
+
+        if (enteredId === savedId && savedId !== null) {
+
+            document.getElementById("studentName").textContent =
+                localStorage.getItem("userName") || "Student";
+
+            document.getElementById("studentSkill").textContent =
+                localStorage.getItem("skill") || "-";
+
+            document.getElementById("studentScore").textContent =
+                (localStorage.getItem("score") || "0") + "%";
+
+            document.getElementById("studentStatus").textContent =
+                localStorage.getItem("skillStatus") || "-";
+
+            document.getElementById("studentDate").textContent =
+                localStorage.getItem("proofDate") || "-";
+
+            document.getElementById("studentProofId").textContent =
+                savedId;
+
+
+            document.getElementById("result").style.display = "block";
+
+        } else {
+
+            document.getElementById("notFound").style.display = "block";
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

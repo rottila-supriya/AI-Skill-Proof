@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Skill Proof Certificate</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Georgia, "Times New Roman", serif;
+            background: #eef2f7;
+        }
+
+        .certificate {
+            max-width: 1100px;
+            margin: auto;
+            background: #fffdf8;
+            min-height: 650px;
+            position: relative;
+            border: 10px solid #172554;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .inner-border {
+            margin: 12px;
+            min-height: 600px;
+            border: 2px solid #d4a72c;
+            position: relative;
+            padding: 35px 55px;
+            box-sizing: border-box;
+        }
+
+        .top-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 80px;
+            background: #172554;
+            clip-path: polygon(0 0, 100% 0, 65% 100%, 0 100%);
+        }
+
+        .top-left-gold {
+            position: absolute;
+            top: 0;
+            left: 75px;
+            width: 70px;
+            height: 80px;
+            background: #d4a72c;
+            clip-path: polygon(0 0, 100% 0, 45% 100%, 0 100%);
+        }
+
+        .bottom-right {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 160px;
+            height: 90px;
+            background: #172554;
+            clip-path: polygon(35% 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .bottom-gold {
+            position: absolute;
+            bottom: 0;
+            right: 70px;
+            width: 75px;
+            height: 90px;
+            background: #d4a72c;
+            clip-path: polygon(45% 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .header {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .brand {
+            color: #172554;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .tagline {
+            color: #555;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        .certificate-title {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .certificate-title h1 {
+            margin: 0;
+            color: #172554;
+            font-size: 55px;
+            letter-spacing: 4px;
+        }
+
+        .certificate-title h2 {
+            margin: 5px 0;
+            color: #c18d15;
+            font-size: 25px;
+            letter-spacing: 8px;
+        }
+
+        .line {
+            width: 180px;
+            height: 2px;
+            background: #d4a72c;
+            display: inline-block;
+            margin: 0 15px 7px;
+        }
+
+        .content {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .certify {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .student-name {
+            font-size: 48px;
+            color: #172554;
+            font-style: italic;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .demonstrated {
+            font-size: 19px;
+            color: #333;
+        }
+
+        .skill {
+            font-family: Arial, sans-serif;
+            font-size: 31px;
+            color: #172554;
+            font-weight: bold;
+            margin: 10px 0 20px;
+        }
+
+        .score-box {
+            width: 300px;
+            margin: auto;
+            background: #edf3fb;
+            border-radius: 50px;
+            padding: 12px 20px;
+        }
+
+        .score-title {
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            color: #172554;
+            font-weight: bold;
+        }
+
+        .score {
+            font-family: Arial, sans-serif;
+            font-size: 38px;
+            color: #172554;
+            font-weight: bold;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 30px;
+            border-radius: 30px;
+            background: #d9f3e5;
+            color: #176b43;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .details {
+            display: flex;
+            justify-content: center;
+            gap: 70px;
+            margin-top: 35px;
+            padding-top: 20px;
+            border-top: 1px solid #ccd3dc;
+            font-family: Arial, sans-serif;
+        }
+
+        .detail {
+            text-align: left;
+        }
+
+        .detail-title {
+            color: #555;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .detail-value {
+            color: #172554;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #172554;
+            font-style: italic;
+            font-size: 18px;
+        }
+
+        .footer-small {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            margin-top: 8px;
+            color: #555;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 25px;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            border: none;
+            background: #172554;
+            color: white;
+            padding: 12px 22px;
+            margin: 5px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #28458c;
+        }
+
+        @media print {
+
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .certificate {
+                box-shadow: none;
+                max-width: none;
+            }
+
+            .buttons {
+                display: none;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .inner-border {
+                padding: 25px 20px;
+            }
+
+            .certificate-title h1 {
+                font-size: 35px;
+            }
+
+            .student-name {
+                font-size: 35px;
+            }
+
+            .skill {
+                font-size: 24px;
+            }
+
+            .details {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .detail {
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+    <h2>🧠 AI Skill Proof</h2>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="login.html">Assessment</a>
+        <a href="profile.html">Profile</a>
+        <a href="verify.html">Verify</a>
+    </div>
+</nav>
+
+<div class="certificate">
+
+    <div class="top-left"></div>
+    <div class="top-left-gold"></div>
+
+    <div class="bottom-right"></div>
+    <div class="bottom-gold"></div>
+
+    <div class="inner-border">
+
+        <div class="header">
+
+            <div class="brand">
+                🧠 AI Skill Proof
+            </div>
+
+            <div class="tagline">
+                LEARN &nbsp; | &nbsp; PRACTICE &nbsp; | &nbsp; GET VERIFIED
+            </div>
+
+        </div>
+
+
+        <div class="certificate-title">
+
+            <span class="line"></span>
+
+            <h1>SKILL PROOF</h1>
+
+            <h2>CERTIFICATE</h2>
+
+        </div>
+
+
+        <div class="content">
+
+            <div class="certify">
+                This is to certify that
+            </div>
+
+            <div class="student-name" id="userName">
+                Student
+            </div>
+
+            <div class="demonstrated">
+                has demonstrated skills in
+            </div>
+
+            <div class="skill" id="skill">
+                Machine Learning
+            </div>
+
+
+            <div class="score-box">
+
+                <div class="score-title">
+                    OVERALL SCORE
+                </div>
+
+                <div class="score" id="score">
+                    0%
+                </div>
+
+            </div>
+
+
+            <div class="status" id="status">
+                Skill Demonstrated
+            </div>
+
+
+            <div class="details">
+
+                <div class="detail">
+
+                    <div class="detail-title">
+                        PROOF ID
+                    </div>
+
+                    <div class="detail-value" id="proofId">
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-title">
+                        ASSESSMENT DATE
+                    </div>
+
+                    <div class="detail-value" id="proofDate">
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-title">
+                        SKILL
+                    </div>
+
+                    <div class="detail-value" id="skillBottom">
+                        -
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer">
+                AI Skill Proof
+            </div>
+
+            <div class="footer-small">
+                VERIFIED SKILLS &nbsp; | &nbsp; REAL OPPORTUNITIES
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="buttons">
+
+    <button onclick="window.print()">
+        🖨️ Print / Save
+    </button>
+
+    <button onclick="goDashboard()">
+        Dashboard
+    </button>
+
+</div>
+
+
+<script>
+
+    const userName = localStorage.getItem("userName");
+    const skill = localStorage.getItem("skill");
+    const score = localStorage.getItem("score");
+    const status = localStorage.getItem("skillStatus");
+    const proofId = localStorage.getItem("proofId");
+    const proofDate = localStorage.getItem("proofDate");
+
+
+    document.getElementById("userName").textContent =
+        userName || "Student";
+
+
+    document.getElementById("skill").textContent =
+        skill || "Skill";
+
+
+    document.getElementById("skillBottom").textContent =
+        skill || "-";
+
+
+    document.getElementById("score").textContent =
+        (score || 0) + "%";
+
+
+    document.getElementById("status").textContent =
+        status || "Skill Demonstrated";
+
+
+    document.getElementById("proofId").textContent =
+        proofId || "-";
+
+
+    document.getElementById("proofDate").textContent =
+        proofDate || "-";
+
+
+    function goDashboard() {
+
+        window.location.href = "dashboard.html";
+
+    }
+
+</script>
+
+</body>
+</html>

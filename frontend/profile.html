@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Skill Proof - Profile</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .profile-icon {
+            font-size: 70px;
+        }
+
+        h1 {
+            color: #172554;
+            margin-bottom: 30px;
+        }
+
+        .info {
+            text-align: left;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f4f7fb;
+            border-radius: 8px;
+        }
+
+        .label {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .value {
+            color: #172554;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #172554;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #28458c;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>🧠 AI Skill Proof</h2>
+
+    <nav>
+    <a href="index.html">Home</a>
+    <a href="skills.html">Skills</a>
+    <a href="login.html">Assessment</a>
+    <a href="profile.html">Profile</a>
+    <a href="verify.html">Verify</a>
+</nav>
+</header>
+
+<div class="container">
+
+    <div class="profile-card">
+
+        <div class="profile-icon">👤</div>
+
+        <h1>My Profile</h1>
+
+        <div class="info">
+            <div class="label">FULL NAME</div>
+            <div class="value" id="userName">-</div>
+        </div>
+
+        <div class="info">
+            <div class="label">EMAIL</div>
+            <div class="value" id="userEmail">-</div>
+        </div>
+
+        <div class="info">
+            <div class="label">SKILL</div>
+            <div class="value" id="skill">-</div>
+        </div>
+
+        <div class="info">
+            <div class="label">OVERALL SCORE</div>
+            <div class="value" id="score">-</div>
+        </div>
+
+        <div class="info">
+            <div class="label">STATUS</div>
+            <div class="value" id="status">-</div>
+        </div>
+
+        <div class="info">
+            <div class="label">PROOF ID</div>
+            <div class="value" id="proofId">-</div>
+        </div>
+
+        <button onclick="goDashboard()">⬅ Back to Dashboard</button>
+
+    </div>
+
+</div>
+
+<script>
+
+    document.getElementById("userName").textContent =
+        localStorage.getItem("userName") || "-";
+
+    document.getElementById("userEmail").textContent =
+        localStorage.getItem("userEmail") || "-";
+
+    document.getElementById("skill").textContent =
+        localStorage.getItem("skill") || "-";
+
+    document.getElementById("score").textContent =
+        (localStorage.getItem("score") || "0") + "%";
+
+    document.getElementById("status").textContent =
+        localStorage.getItem("skillStatus") || "-";
+
+    document.getElementById("proofId").textContent =
+        localStorage.getItem("proofId") || "-";
+
+    function goDashboard() {
+        window.location.href = "dashboard.html";
+    }
+
+</script>
+
+</body>
+</html>

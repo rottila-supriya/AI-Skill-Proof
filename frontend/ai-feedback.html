@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Skill Analysis | AI Skill Proof</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #172554;
+        }
+
+        header {
+            background: #0f172a;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #fbbf24;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title h1 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #64748b;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 22px;
+            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        }
+
+        .profile-summary {
+            text-align: center;
+        }
+
+        .profile-summary h2 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            color: #4f46e5;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .overall {
+            margin: 25px auto 10px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #eef2ff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overall-number {
+            font-size: 38px;
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+        .overall-label {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 9px 18px;
+            border-radius: 20px;
+            background: #dcfce7;
+            color: #166534;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .score-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .score-box h3 {
+            font-size: 15px;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .score-value {
+            font-size: 30px;
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+        .card h2 {
+            margin-bottom: 18px;
+            color: #0f172a;
+        }
+
+        .analysis-box {
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border-left: 5px solid #f59e0b;
+        }
+
+        .analysis-box h3 {
+            margin-bottom: 8px;
+        }
+
+        .analysis-box p {
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .topics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            list-style: none;
+        }
+
+        .topics li {
+            background: #f8fafc;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            color: #334155;
+        }
+
+        .next-goal {
+            background: #eef2ff;
+            border-left: 5px solid #4f46e5;
+            padding: 20px;
+            border-radius: 12px;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        .button-area {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        button {
+            background: #0f172a;
+            color: white;
+            border: none;
+            padding: 13px 22px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #1e293b;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            .score-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topics {
+                grid-template-columns: 1fr;
+            }
+
+            .title h1 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🧠 AI Skill Proof
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="assessment.html">Assessment</a>
+        <a href="profile.html">Profile</a>
+        <a href="ai-feedback.html">AI Analysis</a>
+        <a href="verify.html">Verify</a>
+    </nav>
+
+</header>
+
+
+<div class="container">
+
+    <div class="title">
+
+        <h1>🤖 AI Skill Analysis</h1>
+
+        <p id="introText">
+            Analysing your assessment performance...
+        </p>
+
+    </div>
+
+
+    <!-- PROFILE SUMMARY -->
+
+    <div class="card profile-summary">
+
+        <h2 id="studentName">
+            Student
+        </h2>
+
+        <div class="skill-name" id="skillName">
+            Skill
+        </div>
+
+        <div class="overall">
+
+            <div class="overall-number" id="overallScore">
+                0%
+            </div>
+
+            <div class="overall-label">
+                Overall Score
+            </div>
+
+        </div>
+
+        <div class="status" id="statusText">
+            Developing Skill
+        </div>
+
+    </div>
+
+
+    <!-- PERFORMANCE LEVEL -->
+
+    <div class="card">
+
+        <h2>📈 Performance Level</h2>
+
+        <div class="analysis-box">
+
+            <h3 id="levelTitle">
+                Performance
+            </h3>
+
+            <p id="levelText"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- SCORE BREAKDOWN -->
+
+    <div class="card">
+
+        <h2>📊 Performance Breakdown</h2>
+
+        <div class="score-grid">
+
+            <div class="score-box">
+
+                <h3>Knowledge</h3>
+
+                <div class="score-value" id="knowledgeScore">
+                    0%
+                </div>
+
+            </div>
+
+
+            <div class="score-box">
+
+                <h3>Debugging</h3>
+
+                <div class="score-value" id="debugScore">
+                    0%
+                </div>
+
+            </div>
+
+
+            <div class="score-box">
+
+                <h3>Coding</h3>
+
+                <div class="score-value" id="codingScore">
+                    0%
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- AI ANALYSIS -->
+
+    <div class="card">
+
+        <h2>🤖 AI Generated Analysis</h2>
+
+
+        <div class="analysis-box">
+
+            <h3>💪 Your Strongest Area</h3>
+
+            <p id="strengthText"></p>
+
+        </div>
+
+
+        <div class="analysis-box">
+
+            <h3>🔧 Area to Improve</h3>
+
+            <p id="improveText"></p>
+
+        </div>
+
+
+        <div class="analysis-box">
+
+            <h3>💡 AI Recommendation</h3>
+
+            <p id="recommendationText"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- LEARNING TOPICS -->
+
+    <div class="card">
+
+        <h2>📚 Recommended Learning Topics</h2>
+
+        <ul class="topics" id="topicList"></ul>
+
+    </div>
+
+
+    <!-- NEXT GOAL -->
+
+    <div class="card">
+
+        <h2>🎯 Your Next Goal</h2>
+
+        <div class="next-goal" id="nextGoal"></div>
+
+    </div>
+
+
+    <!-- BUTTONS -->
+
+    <div class="button-area">
+
+        <button onclick="goDashboard()">
+            📊 Dashboard
+        </button>
+
+        <button onclick="goAssessment()">
+            📝 Take Assessment Again
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =========================
+       GET ASSESSMENT DATA
+    ========================= */
+
+    const userName =
+        localStorage.getItem("userName") || "Student";
+
+    const skill =
+        localStorage.getItem("skill") || "Your Skill";
+
+    const knowledge =
+        Number(localStorage.getItem("knowledgeScore")) || 0;
+
+    const debugging =
+        Number(localStorage.getItem("debugScore")) || 0;
+
+    const coding =
+        Number(localStorage.getItem("codingScore")) || 0;
+
+    const overall =
+        Number(localStorage.getItem("score")) || 0;
+
+    const savedStatus =
+        localStorage.getItem("skillStatus");
+
+
+    /* =========================
+       DISPLAY BASIC INFORMATION
+    ========================= */
+
+    document.getElementById("studentName").textContent =
+        userName;
+
+    document.getElementById("skillName").textContent =
+        skill;
+
+    document.getElementById("overallScore").textContent =
+        overall + "%";
+
+    document.getElementById("knowledgeScore").textContent =
+        knowledge + "%";
+
+    document.getElementById("debugScore").textContent =
+        debugging + "%";
+
+    document.getElementById("codingScore").textContent =
+        coding + "%";
+
+    document.getElementById("introText").textContent =
+        "AI analysis of " +
+        userName +
+        "'s " +
+        skill +
+        " assessment performance.";
+
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    let status = savedStatus;
+
+    if (!status) {
+
+        if (overall >= 70) {
+            status = "Skill Demonstrated";
+        }
+
+        else if (overall >= 50) {
+            status = "Developing Skill";
+        }
+
+        else {
+            status = "Needs Improvement";
+        }
+
+    }
+
+    document.getElementById("statusText").textContent =
+        status;
+
+
+    /* =========================
+       PERFORMANCE LEVEL
+    ========================= */
+
+    let levelTitle = "";
+    let levelText = "";
+
+    if (overall >= 80) {
+
+        levelTitle =
+            "🌟 Strong Performance";
+
+        levelText =
+            "You have demonstrated a strong foundation in " +
+            skill +
+            ". You are ready to work on practical projects and more challenging problems.";
+
+    }
+
+    else if (overall >= 60) {
+
+        levelTitle =
+            "👍 Good Developing Level";
+
+        levelText =
+            "You have a good foundation in " +
+            skill +
+            ". Focus on your weaker areas and continue practising practical problems.";
+
+    }
+
+    else if (overall >= 40) {
+
+        levelTitle =
+            "📚 Developing Foundation";
+
+        levelText =
+            "You understand some important concepts, but you need more practice with fundamentals and practical problems.";
+
+    }
+
+    else {
+
+        levelTitle =
+            "🌱 Beginner Foundation";
+
+        levelText =
+            "Start with the basics of " +
+            skill +
+            ". Learn one concept at a time and practise small problems regularly.";
+
+    }
+
+    document.getElementById("levelTitle").textContent =
+        levelTitle;
+
+    document.getElementById("levelText").textContent =
+        levelText;
+
+
+    /* =========================
+       FIND STRONGEST AREA
+    ========================= */
+
+    let strongestArea = "Knowledge";
+    let strongestScore = knowledge;
+
+    if (debugging > strongestScore) {
+
+        strongestArea = "Debugging";
+        strongestScore = debugging;
+
+    }
+
+    if (coding > strongestScore) {
+
+        strongestArea = "Coding";
+        strongestScore = coding;
+
+    }
+
+
+    /* =========================
+       FIND WEAKEST AREA
+    ========================= */
+
+    let weakestArea = "Knowledge";
+    let weakestScore = knowledge;
+
+    if (debugging < weakestScore) {
+
+        weakestArea = "Debugging";
+        weakestScore = debugging;
+
+    }
+
+    if (coding < weakestScore) {
+
+        weakestArea = "Coding";
+        weakestScore = coding;
+
+    }
+
+
+    /* =========================
+       STRONGEST AREA FEEDBACK
+    ========================= */
+
+    let strengthText = "";
+
+    if (strongestScore >= 80) {
+
+        strengthText =
+            strongestArea +
+            " is your strongest area with a score of " +
+            strongestScore +
+            "%. You showed strong performance in this part of the assessment.";
+
+    }
+
+    else if (strongestScore >= 50) {
+
+        strengthText =
+            strongestArea +
+            " is currently your strongest area with a score of " +
+            strongestScore +
+            "%. Continue practising this area to make it stronger.";
+
+    }
+
+    else {
+
+        strengthText =
+            "Your current scores show that you are still building your foundation. Keep practising all three areas.";
+
+    }
+
+
+    /* =========================
+       IMPROVEMENT FEEDBACK
+    ========================= */
+
+    let improveText = "";
+
+    if (weakestScore >= 80) {
+
+        improveText =
+            "Your performance is balanced across Knowledge, Debugging and Coding. Continue practising all three areas.";
+
+    }
+
+    else if (weakestArea === "Knowledge") {
+
+        improveText =
+            "Knowledge is your lowest-scoring area at " +
+            weakestScore +
+            "%. Review the basic concepts of " +
+            skill +
+            " and practise short questions.";
+
+    }
+
+    else if (weakestArea === "Debugging") {
+
+        improveText =
+            "Debugging is your lowest-scoring area at " +
+            weakestScore +
+            "%. Practise reading errors, finding syntax mistakes and identifying simple logic problems.";
+
+    }
+
+    else {
+
+        improveText =
+            "Coding is your lowest-scoring area at " +
+            weakestScore +
+            "%. Write small programs regularly and gradually move to practical problems.";
+
+    }
+
+
+    /* =========================
+       RECOMMENDATION
+    ========================= */
+
+    let recommendationText = "";
+
+    if (overall >= 80) {
+
+        recommendationText =
+            "Continue solving practical problems and build a small real-world " +
+            skill +
+            " project. Focus on writing clean and understandable code.";
+
+    }
+
+    else if (overall >= 60) {
+
+        recommendationText =
+            "Your foundation is developing well. Spend extra practice time on " +
+            weakestArea +
+            " and then attempt more practical problems.";
+
+    }
+
+    else if (overall >= 40) {
+
+        recommendationText =
+            "Strengthen your fundamentals first. Practise simple concepts, debugging and small programs every day.";
+
+    }
+
+    else {
+
+        recommendationText =
+            "Start with the fundamentals of " +
+            skill +
+            ". Learn one concept at a time and practise simple problems before moving to advanced topics.";
+
+    }
+
+
+    /* =========================
+       RECOMMENDED TOPICS
+    ========================= */
+
+    let topics = [];
+
+
+    if (skill === "Python") {
+
+        topics = [
+
+            "Variables and Data Types",
+
+            "Conditions and Loops",
+
+            "Lists and Strings",
+
+            "Functions",
+
+            "Exception Handling",
+
+            "Problem Solving"
+
+        ];
+
+    }
+
+    else if (skill === "Machine Learning") {
+
+        topics = [
+
+            "Machine Learning Basics",
+
+            "Training and Testing Data",
+
+            "Classification",
+
+            "Regression",
+
+            "Feature Preparation",
+
+            "Model Evaluation"
+
+        ];
+
+    }
+
+    else if (skill === "Data Analysis") {
+
+        topics = [
+
+            "Pandas Basics",
+
+            "Data Cleaning",
+
+            "Missing Values",
+
+            "Data Filtering",
+
+            "Data Visualization",
+
+            "Statistical Analysis"
+
+        ];
+
+    }
+
+    else if (skill === "Computer Vision") {
+
+        topics = [
+
+            "OpenCV Basics",
+
+            "Image Reading and Display",
+
+            "Grayscale Images",
+
+            "Image Resizing",
+
+            "Edge Detection",
+
+            "Object Detection"
+
+        ];
+
+    }
+
+    else {
+
+        topics = [
+
+            "Programming Basics",
+
+            "Problem Solving",
+
+            "Debugging",
+
+            "Practical Coding",
+
+            "Project Development"
+
+        ];
+
+    }
+
+
+    /* =========================
+       DISPLAY TOPICS
+    ========================= */
+
+    const topicList =
+        document.getElementById("topicList");
+
+    topics.forEach(function(topic) {
+
+        const li =
+            document.createElement("li");
+
+        li.textContent =
+            "📌 " + topic;
+
+        topicList.appendChild(li);
+
+    });
+
+
+    /* =========================
+       NEXT GOAL
+    ========================= */
+
+    let nextGoal = "";
+
+    if (overall >= 80) {
+
+        nextGoal =
+            "Build a small " +
+            skill +
+            " project and add it to your portfolio. Try to solve a real-world problem.";
+
+    }
+
+    else if (overall >= 60) {
+
+        nextGoal =
+            "Practise your weakest area, complete 3 small practical problems and then take the assessment again.";
+
+    }
+
+    else if (overall >= 40) {
+
+        nextGoal =
+            "Study the recommended topics and practise simple exercises every day. After improving your basics, retake the assessment.";
+
+    }
+
+    else {
+
+        nextGoal =
+            "Start from the basics of " +
+            skill +
+            ". Complete simple exercises every day and slowly build your confidence.";
+
+    }
+
+
+    /* =========================
+       DISPLAY ANALYSIS
+    ========================= */
+
+    document.getElementById("strengthText").textContent =
+        strengthText;
+
+    document.getElementById("improveText").textContent =
+        improveText;
+
+    document.getElementById("recommendationText").textContent =
+        recommendationText;
+
+    document.getElementById("nextGoal").textContent =
+        nextGoal;
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    function goDashboard() {
+
+        window.location.href =
+            "dashboard.html";
+
+    }
+
+
+    function goAssessment() {
+
+        window.location.href =
+            "assessment.html";
+
+    }
+
+</script>
+
+</body>
+
+</html>
